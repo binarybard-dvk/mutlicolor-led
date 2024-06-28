@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -87.8, "left": 122.4, "attrs": {} },
+    { "type": "board-pi-pico-w", "id": "pico", "top": -3.25, "left": -6.05, "attrs": {} },
+    { "type": "wokwi-led", "id": "wokwi-led-0", "top": -118.8, "left": 119, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "wokwi-pushbutton-0",
+      "top": 63.8,
+      "left": 259.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -33.6,
+      "left": 105.05,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -24,
+      "left": 172.25,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -24,
+      "left": 191.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -24,
+      "left": 201.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -120.8, "left": 193.1, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "wokwi-led-0:A", "pico:GP16", "green", [ "v0" ] ],
+    [ "wokwi-pushbutton-0:2.l", "pico:GND.3", "green", [ "h0" ] ],
+    [ "r2:1", "bb1:8t.d", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:8b.h", "", [ "$bb" ] ],
+    [ "r3:1", "bb1:10t.d", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:10b.h", "", [ "$bb" ] ],
+    [ "rgb1:R", "bb1:8t.a", "", [ "$bb" ] ],
+    [ "rgb1:COM", "bb1:9t.b", "", [ "$bb" ] ],
+    [ "rgb1:G", "bb1:10t.a", "", [ "$bb" ] ],
+    [ "rgb1:B", "bb1:11t.a", "", [ "$bb" ] ],
+    [ "r4:1", "bb1:11t.d", "", [ "$bb" ] ],
+    [ "r4:2", "bb1:11b.h", "", [ "$bb" ] ],
+    [ "wokwi-led-0:A", "bb1:2t.a", "", [ "$bb" ] ],
+    [ "wokwi-led-0:C", "bb1:1t.a", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:1t.c", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:1b.g", "", [ "$bb" ] ],
+    [ "r1:2", "pico:GND.8", "green", [ "h0" ] ],
+    [ "bb1:8b.j", "pico:GP17", "red", [ "v0" ] ],
+    [ "bb1:10b.j", "pico:GP18", "green", [ "v0" ] ],
+    [ "bb1:11b.j", "pico:GP19", "blue", [ "v0" ] ],
+    [ "pico:GP20", "wokwi-pushbutton-0:1.r", "green", [ "h0" ] ],
+    [ "bb1:9t.e", "pico:3V3", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
